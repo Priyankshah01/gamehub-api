@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Search Results</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+    <div id="spinner" class="spinner"></div>
+<div id="content" style="display:none;">
+  <div class="container">
+            <a href="/">Back to Home</a>
+
+    <h2 class="section-title">Results for "<%= query %>"</h2>
+
+    <% if (games.length > 0) { %>
+    <div class="games-grid">
+      <% games.forEach(game => { %>
+        <div class="game-card">
+          <img src="<%= game.background_image %>" alt="<%= game.name %> Cover Image" />
+          <h3><%= game.name %></h3>
+          <p>⭐ Rating: <%= game.rating %></p>
+          <a href="/game/<%= game.id %>" class="btn">View Details</a>
+        </div>
+      <% }); %>
+    </div>
+    <% } else { %>
+      <p>No games found for this search query.</p>
+    <% } %>
+
+    <% if (videoId) { %>
+      <h2 class="section-title">🎥 Featured Gameplay</h2>
+      <div class="responsive-iframe">
+        <iframe src="https://www.youtube.com/embed/<%= videoId %>" frameborder="0" allowfullscreen></iframe>
+      </div>
+    <% } %>
+  </div>
+</div>
+<script>
+  window.addEventListener('load', () => {
+    document.getElementById('spinner').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  });
+</script>
+</body>
+
+</html>

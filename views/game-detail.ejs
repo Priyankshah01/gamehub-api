@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= game.name %> - GameHub
+    </title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+    <div id="spinner" class="spinner"></div>
+    <div id="content" style="display:none;">
+        <div class="container">
+            <a href="/">Back to Home</a>
+
+            <h1>
+                <%= game.name %>
+            </h1>
+            <p>
+                <%= game.description_raw %>
+            </p>
+
+            <h2>Screenshots</h2>
+            <% if (game.background_image) { %>
+                <img src="<%= game.background_image %>" width="600" />
+                <% } %>
+
+                    <h2>YouTube Videos</h2>
+                    <% videos.forEach(video=> { %>
+                        <iframe width="400" height="230" src="https://www.youtube.com/embed/<%= video.id.videoId %>"
+                            frameborder="0" allowfullscreen>
+                        </iframe>
+                        <% }); %>
+
+
+        </div>
+    </div>
+    <script>
+        window.addEventListener('load', () => {
+            document.getElementById('spinner').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

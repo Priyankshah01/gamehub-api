@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GameHub - Home</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+    <header>
+        <h1>🎮 GameHub</h1>
+        <p>Browse popular games</p>
+        <nav>
+            <form action="/search" method="POST" class="search-form">
+                <input type="text" name="query" placeholder="Search term" required />
+                <button type="submit">Search</button>
+            </form>
+            <a href="/trending" class="trending-link">🔥 Trending</a>
+        </nav>
+    </header>
+
+    <% if (error) { %>
+        <p class="error">
+            <%= error %>
+        </p>
+        <% } %>
+
+            <div class="games-grid">
+                <% games.forEach(game=> { %>
+                    <div class="game-card">
+                        <a href="/game/<%= game.id %>">
+                            <img src="<%= game.background_image %>" alt="<%= game.name %>" />
+                            <h3>
+                                <%= game.name %>
+                            </h3>
+                        </a>
+                    </div>
+                    <% }) %>
+            </div>
+
+            <footer>
+                <p>Made by Priyank Shah</p>
+            </footer>
+</body>
+
+</html>

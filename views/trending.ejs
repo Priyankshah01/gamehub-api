@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trending Games</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <a href="/">Back to Home</a>
+
+        <h1>🔥 Trending Games</h1>
+        <div>
+            <% games.forEach(game=> { %>
+                <div>
+                    <img src="<%= game.background_image %>" width="300" />
+                    <p>
+                        <%= game.name %>
+                    </p>
+                    <a href="/game/<%= game.id %>">View</a>
+                </div>
+                <% }) %>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
