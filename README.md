@@ -33,17 +33,8 @@ GameHub is a modern web app to browse, search, and explore popular video games u
 - RAWG API Key (free registration at https://rawg.io/apidocs)  
 - Google YouTube Data API Key (via Google Cloud Console)  
 
-### Installation
 
-1. Clone the repo  
-   ```bash
-   git clone https://github.com/yourusername/gamehub.git
-   cd gamehub
-   npm install
-   npm start
-
-
-### Future Enhancements
+## Future Enhancements
 
 - Add user authentication and favorites list  
 - Include user reviews and ratings
